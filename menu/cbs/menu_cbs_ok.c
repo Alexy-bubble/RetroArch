@@ -622,6 +622,13 @@ int generic_action_ok_displaylist_push(const char *path,
          info.directory_ptr            = idx;
          menu->rpl_entry_selection_ptr = (unsigned)idx;
          dl_type                       = DISPLAYLIST_GENERIC;
+           if (strlen(menu->deferred_path)
+               > strlen(settings->paths.directory_playlist)
+               && string_ends_with(menu->deferred_path, ".lpl"))
+         {
+            info_label = "PLAYLIST_HACK";
+            info_path = menu->deferred_path + strlen(settings->paths.directory_playlist);
+         }
          break;
       case ACTION_OK_DL_AUDIO_DSP_PLUGIN:
          filebrowser_clear_type();
