@@ -3445,6 +3445,11 @@ static bool menu_displaylist_push_internal(
       if (menu_displaylist_ctl(DISPLAYLIST_HORIZONTAL, info))
          return true;
    }
+    else if (string_is_equal(label, "PLAYLIST_HACK"))
+   {
+      if (menu_displaylist_ctl(DISPLAYLIST_PLAYLIST_COLLECTION, info))
+         return true;
+   }
 
    return false;
 }
